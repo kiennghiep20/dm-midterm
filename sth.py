@@ -117,7 +117,7 @@ for e in experimental_expressions:
 # Task 2
 import csv
 
-student_lookup = {} # Create an efficient lookup to quickly find student based on whether the input is id or name
+student_lookup = {} # Create an efficient lookup to quickly find student based on whether the input is id or name for quantified statement
 with open('dataset.csv', 'r') as file:
     dataset = csv.DictReader(file)
     student_records = []
@@ -126,7 +126,7 @@ with open('dataset.csv', 'r') as file:
         record['Math'] = int(record.get('Math', 0)) # Default to 0 for safety
         record['CS'] = int(record.get('CS', 0))
         record['Eng'] = int(record.get('Eng', 0))
-        student_records.append(record) # Normal list of student information for quatified statements
+        student_records.append(record) # Normal list of student information for negated quatified statements since we have to check all students in the dataset
         # Assuming student refers to both id and name
         student_lookup[record['StudentID']] = record # Store student information based on id
         student_lookup[record['StudentName']] = record # Store student information based on name
