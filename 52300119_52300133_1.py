@@ -1,4 +1,6 @@
 from collections import deque
+from prettytable import PrettyTable
+
 def Infix2Postfix(Infix):
     operators = {'~': 5, '&': 4, '|': 3, '>': 2, '=': 1} # Operators' precedence
     stack = []
@@ -60,14 +62,14 @@ def postfix_to_infix(Postfix):
 
 def Postfix2TruthTable(Postfix):
     unique_propositional_variables = sorted(set(findall("[A-Z]", Postfix)))
-    header_row = '||'.join(unique_propositional_variables) + '||' + postfix_to_infix(Postfix)
+    pt = PrettyTable(list(unique_propositional_variables) + [postfix_to_infix(Postfix)])
+    # header_row = '||'.join(unique_propositional_variables) + '||' + postfix_to_infix(Postfix)
     num_prepositions = len(unique_propositional_variables)
     prespositions = product([True, False], repeat=num_prepositions)
 
+    # print(header_row)
+    # print('-'*len(header_row))
 
-
-    print(header_row)
-    print('-'*len(header_row))
     for presposition in prespositions:
         dictionary = {}
         for i, var in enumerate(unique_propositional_variables):
@@ -95,9 +97,16 @@ def Postfix2TruthTable(Postfix):
                     stack.append(first_operand == second_operand)
                 else: # Invalid operator encountered
                     return None
+                
+        vars = []
         for var in presposition:
-            print(f"{var:<1}||", end="")
-        print(f"{stack[0]:<1}")
+            vars.append('T' if var else 'F')
+
+        vars.append('T') if stack[0] else vars.append('F')
+        pt.add_row(vars)
+        print(pt)
+        # print(f"{stack[0]:<1}")
+        print()
 
 # For explanation
 # Postfix2TruthTable(Infix2Postfix("R|(P&Q)"))
