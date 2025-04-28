@@ -104,9 +104,9 @@ def Postfix2TruthTable(Postfix):
 
         vars.append('T') if stack[0] else vars.append('F')
         pt.add_row(vars)
-        print(pt)
-        # print(f"{stack[0]:<1}")
-        print()
+    print(pt)
+    # print(f"{stack[0]:<1}")
+    print()
 
 # For explanation
 # Postfix2TruthTable(Infix2Postfix("R|(P&Q)"))
