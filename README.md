@@ -58,3 +58,7 @@
     *   **Existential Quantification (∃):** e.g., `any_math_gt9()` checks if *there exists* at least one student with a Math score > 9.
     *   **Combined/Nested Statements:** e.g., checking if all students with Math < 6 have at least one other score > 6.
 4.  **Negation of Quantified Statements:** For each quantified statement, a corresponding function calculates its logical negation (e.g., the negation of "all passed" is "at least one student did not pass").
+
+## Conclusion
+*   **Task 1:** A robust truth table generator was developed. It parses logical expressions, identifies variables, evaluates the expression for all possible truth value combinations using postfix notation, and presents the results in a clear, formatted table.
+*   **Task 2:** Functionality for analyzing and negating quantified statements was created. This involved processing statements to determine their truth values and deriving their logical negations, demonstrating an understanding of predicate logic principles.
